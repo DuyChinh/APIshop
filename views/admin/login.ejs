@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <div class="w-50 mx-auto">
+      <h1 class="text-center">Đăng nhập Admin</h1>
+      <%- error.length ? `<div class="alert alert-danger">${error}</div>` : "" %>
+      <form action="" method="post">
+        <div class="mb-3">
+          <label for="">Email</label>
+          <input type="email" name="email" class="form-control" placeholder="Email..." required>
+        </div>
+
+        <div class="mb-3">
+          <label for="">Mật khẩu</label>
+          <input type="password" name="password" class="form-control" placeholder="Mật khẩu..." required>
+        </div>
+
+        <div class="mb-3">
+          <label for="">Mã xác nhận</label>
+          <input type="password" name="code" class="form-control" placeholder="Mã xác nhận..." required>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">Đăng nhập</button>
+        </div>
+
+      </form>
+    </div>
+  </body>
+</html>

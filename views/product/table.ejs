@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm</title>
+</head>
+<body>
+    <div style="position: absolute; left: 80px">
+      <a href="/admin" class="btn btn-warning"><i class="fa-solid fa-house-chimney"></i> Home</a>
+    </div>
+    <div class="w-90 mx-auto">
+        <h1 class="text-center">Sản phẩm</h1>
+         <%- error.length ? `<div class="alert alert-danger">${error}</div>` : "" %>
+         <%- success.length ? `<div class="alert alert-success">${success}</div>` : "" %>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Order</th>
+                    <th style="width: 8%">Img</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Limit</th>
+                    <th>Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.forEach((product, index) => { %>
+                    <tr>
+                      <td style="width: 5%"><%= index+1 %></td>
+                      <td><img src=<%= product.src %> alt="product img" style="width: 92%; border-radius: 3px; margin: 0 auto"></td>
+                      <td style="width:50%"><%=product.title%></td>
+                      <td><%= product.price.toLocaleString() %></td>
+                      <td><%= product.limit  %></td>
+                      <td><%=moment(product.created_at).utcOffset(7).format('DD/MM/YYYY HH:mm:ss')%></td>
+                      <td>
+                       <form action="/admin/products/delete/<%= product.id %>" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa không?')">
+                         <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                       </form>
+                      </td>
+                    </tr>
+                <% }) %> %>
+            </tbody>
+        </table>
+
+        <div class="mt-3">
+            <a href="/admin/add-product" class="btn btn-success"><i class="fa-solid fa-circle-plus"></i> Thêm sản phẩm mới</a>
+        </div>
+    </div>
+</body>
+</html>

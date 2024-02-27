@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+</head>
+
+<body>
+    <div style="position: absolute; right: 80px">
+        <a href="/admin/products" class="btn btn-success">Quản lí sản phẩm <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div style="position: absolute; left: 80px">
+    <a href="/admin" class="btn btn-warning"><i class="fa-solid fa-house-chimney"></i> Home</a>
+    </div>
+  <div class="w-50 mx-auto">
+    <h1 class="text-center">Thêm sản phẩm</h1>
+    <%- error.length ? `<div class="alert alert-danger">${error}</div>` : "" %>
+    <%- success.length ? `<div class="alert alert-success">${success}</div>` : "" %>
+    <form action="" method="post">
+      <div class="mb-3">
+        <label for="">Tên sản phẩm</label>
+        <input type="text" name="title" class="form-control" placeholder="Tên sản phẩm..." required>
+      </div>
+
+      <div class="mb-3">
+        <label for="">Giá mới</label>
+        <input type="number" name="price" class="form-control" placeholder="Giá mới..." required>
+      </div>
+
+      <div class="mb-3">
+        <label for="">Giá cũ</label>
+        <input type="number" name="price_old" class="form-control" placeholder="Giá cũ..." required>
+      </div>
+
+      <div class="mb-3">
+        <label for="">Số lượng hàng</label>
+        <input type="number" name="limit" class="form-control" placeholder="Số lượng hàng..." required>
+      </div>
+
+      <div class="mb-3">
+        <label for="">Liên kết ảnh sản phẩm</label>
+        <input type="text" name="src" class="form-control" placeholder="Liên kết..." required>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Thêm</button>
+      </div>
+
+    </form>
+  </div>
+</body>
+
+</html>
