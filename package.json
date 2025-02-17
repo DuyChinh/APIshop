@@ -6,7 +6,7 @@
     "dev": "nodemon ./bin/www",
     "start": "nodemon ./bin/www",
     "postinstall": "npx sequelize-cli db:migrate",
-    "build": "npm run postinstall && npm run vercel-build"
+    "build": "npm run postinstall"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
