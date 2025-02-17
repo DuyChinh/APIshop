@@ -22,19 +22,19 @@ router.get("/login", function (req, res, next) {
   res.render("admin/login", { title: "Đăng nhập Admin", error });
 });
 
-// router.post("/login", function (req, res, next) {
-//   const { email, password, code } = req.body;
-//   if(email === "doanchinhit21@gmail.com" && password === "210203" && code === "2102") {
-//     req.user = {
-//       email: email,
-//       // Add any other user properties as needed
-//     };
+router.post("/login", function (req, res, next) {
+  const { email, password, code } = req.body;
+  if(email === "doanchinhit21@gmail.com" && password === "210203" && code === "2102") {
+    req.user = {
+      email: email,
+      // Add any other user properties as needed
+    };
 
-//     res.redirect("/admin");
-//   }
-//   req.flash("error", "Thông tin không đúng!");
-//   return res.redirect(req.get("referer"));
-// });
+    res.redirect("/admin");
+  }
+  req.flash("error", "Thông tin không đúng!");
+  return res.redirect(req.get("referer"));
+});
 
 router.get("/add-product", adminController.addProduct);
 router.post("/add-product", adminController.handleAddProduct);
