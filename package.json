@@ -9,6 +9,7 @@
     "build": "npm run postinstall"
   },
   "dependencies": {
+    "nodemon": "3.1.0",
     "bcrypt": "^5.1.1",
     "boostrap": "^2.0.0",
     "connect-flash": "^0.1.1",
