@@ -3,14 +3,14 @@ var router = express.Router();
 const adminController = require("../controllers/admin.controller");
 const passport = require("passport");
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    failureRedirect: "/admin/login",
-    failureFlash: true,
-    successRedirect: "/admin",
-  })
-);
+// router.post(
+//   "/login",
+//   passport.authenticate("local", {
+//     failureRedirect: "/admin/login",
+//     failureFlash: true,
+//     successRedirect: "/admin",
+//   })
+// );
 
 /* GET home page. */
 router.get("/", (req, res) => {
@@ -24,13 +24,15 @@ router.get("/login", function (req, res, next) {
 
 router.post("/login", function (req, res, next) {
   const { email, password, code } = req.body;
+  console.log("email", email);
   if(email === "doanchinhit21@gmail.com" && password === "210203" && code === "2102") {
     req.user = {
       email: email,
-      // Add any other user properties as needed
     };
+    console.log("req.user", req.user);
+    
 
-    res.redirect("/admin");
+    return res.redirect("/admin");
   }
   req.flash("error", "Thông tin không đúng!");
   return res.redirect(req.get("referer"));
